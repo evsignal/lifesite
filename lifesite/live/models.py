@@ -21,8 +21,8 @@ class Author(models.Model):
 
 class Article(models.Model):
     #blog = models.ForeignKey(Blog)
-    title = models.CharField(max_length=200)
-    headline = models.CharField(max_length=255, default="type your headline here")
+    title = models.CharField(max_length=200, default=" ")
+    headline = models.CharField(max_length=255, default=" ")
     body = models.TextField()
     pub_date = models.DateTimeField('date published')
     mod_date = models.DateTimeField('date modification', default=timezone.now)

@@ -1,20 +1,20 @@
 from django.contrib import admin
-from . models import Article, Blog
+from . models import Article
 
 # Register your models here.
 
 
 class ArticleAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Title', {'fields': ['blog']}),
+        ('Title', {'fields': ['title']}),
         ('Admin body', {'fields': ['body']}),
         ('Date information', {'fields': ['pub_date']})
     ]
     inlines = []
 
-    list_display = ('blog', 'body', 'pub_date')
-    list_display_links = ['blog']
-    search_fields = ['blog']
+    list_display = ('title', 'body', 'pub_date')
+    list_display_links = ['title']
+    search_fields = ['title']
 
 
 """
@@ -30,5 +30,5 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ['question_text']
 """
 
-admin.site.register(Article)
+admin.site.register(Article, ArticleAdmin)
 
