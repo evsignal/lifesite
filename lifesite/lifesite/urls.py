@@ -17,8 +17,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from live import views
+
 urlpatterns = [
-    url(r'^live/', include('live.urls')),
+    #url(r'^live/', include('live.urls')),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^admin/', admin.site.urls),
 
 ]
